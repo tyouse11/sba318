@@ -1,13 +1,7 @@
-// routes/tasks.js
 const express = require('express');
+const tasks = require('../data/tasks')
+const taskDetails = require('../data/taskDetails');
 const router = express.Router();
-
-// Sample data for tasks
-let tasks = [
-  { id: 1, title: 'Laundry', completed: false },
-  { id: 2, title: 'Dishes', completed: true },
-  { id: 3, title: 'Mow Lawn', completed: false},
-];
 
 // GET /tasks
 router.get('/', (req, res) => {
@@ -24,15 +18,15 @@ router.post('/', (req, res) => {
 
 // GET /tasks/:id
 router.get('/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  const task = tasks.find(task => task.id === taskId);
-
-  if (task) {
-    res.render('task', { task, tasks });
-  } else {
-    res.status(404).send('Task not found');
-  }
-});
+    const taskId = parseInt(req.params.id);
+    const taskDetail = taskDetails.find(task => task.id === taskId);
+  
+    if (taskDetail) {
+      res.render('task', { task: taskDetail });
+    } else {
+      res.status(404).send('Task not found');
+    }
+  });
 
 // PATCH /tasks/:id
 router.patch('/:id', (req, res) => {
@@ -83,7 +77,7 @@ router.delete('/:id', (req, res) => {
       } else {
         res.status(404).json({ success: false, message: 'Task not found' });
       }
-      
+
       res.redirect('/tasks');
 });
     

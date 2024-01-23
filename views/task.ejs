@@ -6,12 +6,13 @@
   <title>Task Details</title>
 </head>
 <body>
-  <h1>Task Details</h1>
-  <ul>
-    <li>ID: <%= task.id %></li>
-    <li>Title: <%= task.title %></li>
-    <li>Status: <%= task.completed ? 'Completed' : 'Incomplete' %></li>
-  </ul>
+    <h1>Task Details</h1>
+    <ul>
+      <li>ID: <%= task.id %></li>
+      <li>Title: <%= task.title %></li>
+      <li>Description: <%= task.description %></li>
+      <li>Status: <%= task.completed ? 'Completed' : 'Incomplete' %></li>
+    </ul>
 
   <!-- Form to mark the task as complete or not complete -->
   <form action="/tasks/<%= task.id %>" method="post">
