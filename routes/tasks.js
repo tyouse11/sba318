@@ -26,7 +26,48 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const taskId = parseInt(req.params.id);
   const task = tasks.find(task => task.id === taskId);
-  res.render('task', { task });
+
+  if (task) {
+    res.render('task', { task, tasks });
+  } else {
+    res.status(404).send('Task not found');
+  }
 });
+
+// PATCH /tasks/:id
+router.patch('/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const { title, completed } = req.body;
+  
+    const index = tasks.findIndex(task => task.id === taskId);
+  
+    if (index !== -1) {
+      // Update the task if properties are provided in the request body
+      if (title) tasks[index].title = title;
+      if (completed !== undefined) tasks[index].completed = completed;
+  
+      res.json({ success: true, message: 'Task updated successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'Task not found' });
+    }
+  });
+
+  // POST /tasks/:id (for updating completion status)
+router.post('/:id', (req, res) => {
+    const taskId = parseInt(req.params.id);
+    const { completed } = req.body;
+  
+    const index = tasks.findIndex(task => task.id === taskId);
+  
+    if (index !== -1) {
+      // Update the completion status if provided in the request body
+      if (completed !== undefined) tasks[index].completed = (completed === 'true');
+  
+      res.json({ success: true, message: 'Task updated successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'Task not found' });
+    }
+  });
+
 
 module.exports = router;

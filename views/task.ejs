@@ -7,8 +7,23 @@
 </head>
 <body>
   <h1>Task Details</h1>
-  <h2><%= task.title %></h2>
-  <p>Status: <%= task.completed ? 'Completed' : 'Incomplete' %></p>
+  <ul>
+    <li>ID: <%= task.id %></li>
+    <li>Title: <%= task.title %></li>
+    <li>Status: <%= task.completed ? 'Completed' : 'Incomplete' %></li>
+  </ul>
+
+  <!-- Form to mark the task as complete or not complete -->
+  <form action="/tasks/<%= task.id %>" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="completed">Mark as:</label>
+    <select name="completed" id="completed">
+      <option value="true">Complete</option>
+      <option value="false">Incomplete</option>
+    </select>
+    <button type="submit">Update Status</button>
+  </form>
+
   <a href="/tasks">Back to Tasks</a>
 </body>
 </html>
