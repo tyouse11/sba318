@@ -4,29 +4,52 @@ const taskDetails = require('../data/taskDetails');
 const router = express.Router();
 
 // GET /tasks
+// query parameter that filters tasks based on the completion status
+// uses the '/tasks?completed=true' query parameter to filter the completed tasks and '/tasks?completed=false' to filter the incompleted tasks
+router.get('/', (req, res) => {
+  const completedFilter = req.query.completed;
+
+  if (completedFilter !== undefined) {
+    const isCompleted = completedFilter === 'true';
+
+    const filteredTasks = tasks.filter(task => task.completed === isCompleted);
+
+    res.render('tasks', { tasks: filteredTasks });
+  } else {
+    res.render('tasks', { tasks });
+  }
+});
+
+// GET /tasks
 router.get('/', (req, res) => {
   res.render('tasks', { tasks });
+});
+
+// GET /tasks/:id
+router.get('/:id', (req, res) => {
+  const taskId = parseInt(req.params.id);
+  const taskDetail = taskDetails.find(task => task.id === taskId);
+
+  if (taskDetail) {
+    res.render('task', { task: taskDetail });
+  } else {
+    res.status(404).send('Task not found');
+  }
 });
 
 // POST /tasks
 router.post('/', (req, res) => {
   const { title } = req.body;
+  // Add the task to the tasks array
   const newTask = { id: tasks.length + 1, title, completed: false };
   tasks.push(newTask);
+  
+  // Add the task details to the taskDetails array
+  const newTaskDetail = { id: newTask.id, title, completed: false };
+  taskDetails.push(newTaskDetail);
+  
   res.redirect('/tasks');
 });
-
-// GET /tasks/:id
-router.get('/:id', (req, res) => {
-    const taskId = parseInt(req.params.id);
-    const taskDetail = taskDetails.find(task => task.id === taskId);
-  
-    if (taskDetail) {
-      res.render('task', { task: taskDetail });
-    } else {
-      res.status(404).send('Task not found');
-    }
-  });
 
 // PATCH /tasks/:id
 router.patch('/:id', (req, res) => {
@@ -81,19 +104,4 @@ router.delete('/:id', (req, res) => {
       res.redirect('/tasks');
 });
 
-// GET /tasks
-router.get('/', (req, res) => {
-    const completedFilter = req.query.completed; // Get the completed query parameter
-    
-    if (!completedFilter) {
-      return res.status(400).json({error: "completed parameter is required"});
-    }
-
-    // Filter tasks based of completed status
-    
-
-});
-
-
-    
 module.exports = router;

@@ -3,15 +3,6 @@
 <a name="SBA318 README"></a>
 
 
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][none]
 [![Forks][forks-shield]][none]
 [![Stargazers][stars-shield]][none]
@@ -24,24 +15,15 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <a href="https://github.com/github_tyouse11/sba318"></a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Task Manager</h3>
 
   <p align="center">
-    project_description
+    This is a Task Manager app that allows creating, updating, deleting, and filtering of tasks.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/github_tyouse11/sba318"><strong>Explore the docs »</strong></a>
     <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
 </div>
 
 
@@ -77,8 +59,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This project has obejectives to:
 - Create a server application with Node and Express.
 - Create a RESTful API using Express.
@@ -97,7 +77,7 @@ This is a Task Manager app that allows creating, updating, deleting, and filteri
 
 ### Built With
 
-*[[npm]] [https://www.npmjs.com/]
+* [[npm]] [https://www.npmjs.com/]
 * [[Node.js]][https://nodejs.org/en]
 * [[Nodemon]] [https://www.npmjs.com/package/nodemon]
 * [[Express.js]][https://expressjs.com/]
@@ -110,7 +90,6 @@ This is a Task Manager app that allows creating, updating, deleting, and filteri
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -150,15 +129,6 @@ Project can be used to create a Task Manager List, view the list, edit it in man
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -209,6 +179,6 @@ Project Link: [https://github.com/tyouse11/sba318](https://github.com/tyouse11/s
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_tyouse1
+[linkedin-url]: www.linkedin.com/in/tiffany-youse
 
 
