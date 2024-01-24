@@ -87,21 +87,30 @@ router.post('/:id', (req, res) => {
   });
 
 // DELETE /tasks/:id
-router.delete('/:id', (req, res) => {
+  router.delete('/:id', (req, res) => {
     const taskId = parseInt(req.params.id);
-
-    const index = tasks.findIndex(task => task.id === taskId);
-
-    if (index !== -1) {
-        // Remove the task from the tasks array
-        tasks.splice(index, 1);
-    
-        res.json({ success: true, message: 'Task deleted successfully' });
+  
+    // Find the index of the task in the tasks array
+    const taskIndex = tasks.findIndex(task => task.id === taskId);
+  
+    if (taskIndex !== -1) {
+      // Remove the task from the tasks array
+      tasks.splice(taskIndex, 1);
+  
+      // Find the index of the task in the taskDetails array
+      const taskDetailIndex = taskDetails.findIndex(taskDetail => taskDetail.id === taskId);
+  
+      if (taskDetailIndex !== -1) {
+        // Remove the corresponding task details from the taskDetails array
+        taskDetails.splice(taskDetailIndex, 1);
+  
+        res.redirect('/tasks');
       } else {
-        res.status(404).json({ success: false, message: 'Task not found' });
+        res.status(500).json({ success: false, message: 'Error deleting task details' });
       }
-
-      res.redirect('/tasks');
-});
+    } else {
+      res.status(404).json({ success: false, message: 'Task not found' });
+    }
+  });
 
 module.exports = router;
