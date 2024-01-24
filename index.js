@@ -6,6 +6,9 @@ const port = 3000;
 // Import the tasks router
 const tasksRouter = require('./routes/tasks'); 
 
+// Use styles.css
+app.use(express.static("./styles"));
+
 // Middleware for logging incoming requests
 app.use((req, res, next) => {
     const timestamp = new Date().toLocaleString();
@@ -22,6 +25,17 @@ app.set('view engine', 'ejs');
 
 // Use the tasks router
 app.use('/tasks', tasksRouter);
+
+// 404 Middleware
+app.use((req, res, next) => {
+    next(error(404, "Resource Not Found"));
+  });
+  
+// Error-handling middleware.
+app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.json({ error: err.message });
+});
 
 // Start the server
 app.listen(port, () => {

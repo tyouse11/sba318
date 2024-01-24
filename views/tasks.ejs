@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Manager</title>
 </head>
 <body>
-  <h1>Task Manager</h1>
-  <ul>
-    <% tasks.forEach(task => { %>
-      <li>
-        <a href="/tasks/<%= task.id %>"><%= task.title %></a>
-      </li>
-    <% }); %>
-  </ul>
+    <h1>Task List</h1>
+    <ul>
+      <% tasks.forEach(task => { %>
+        <li>
+          <a href="/tasks/<%= task.id %>"><%= task.title %></a>
+        </li>
+      <% }); %>
+    </ul>
 
   <form action="/tasks" method="post">
     <label for="title">New Task:</label>

@@ -80,5 +80,20 @@ router.delete('/:id', (req, res) => {
 
       res.redirect('/tasks');
 });
+
+// GET /tasks
+router.get('/', (req, res) => {
+    const completedFilter = req.query.completed; // Get the completed query parameter
+    
+    if (!completedFilter) {
+      return res.status(400).json({error: "completed parameter is required"});
+    }
+
+    // Filter tasks based of completed status
+    
+
+});
+
+
     
 module.exports = router;
