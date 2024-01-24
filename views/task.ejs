@@ -26,11 +26,12 @@
     <button type="submit">Update Status</button>
   </form>
 
+  <!-- Form to delete a task -->
   <form action="/tasks/<%= task.id %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Delete Task</button>
   </form>
 
-  <a href="/tasks">Back to Tasks</a>
+  <a href="/tasks"> Back to Tasks </a>
 </body>
 </html>
