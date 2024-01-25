@@ -69,7 +69,7 @@ This project has obejectives to:
 
 It creates a small Node and Express server application that uses custom middleware, error-handling middleware, different data categories, reasonable data structuring practices, GET, POST, PATCH, and DELETE routes, query parameters, route parameters, the guiding principles of REST, EJS view template and engine, CSS, a form, as well as other functionalities to help with the functionality of the project. 
 
-This is a Task Manager app that allows creating, updating, deleting, and filtering of tasks.
+This is a Task Manager app that allows creating, updating, deleting, and filtering of tasks with added style
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
